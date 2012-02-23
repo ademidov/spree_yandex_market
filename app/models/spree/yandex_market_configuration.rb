@@ -8,8 +8,9 @@ class Spree::YandexMarketConfiguration < Spree::Preferences::Configuration
   preference :local_delivery_cost, :string # стоимость доставки по своему региону, может быть произвольной текстовой фразой
   preference :sales_notes,     :string
   preference :only_backorder,  :boolean, :default => false
+  preference :product_group,   :integer
 
-  # wares property 
+  # wares property
   preference :type_prefix,     :string, :default => "prefix"   # Группа товаров \ категория
   preference :vendor,          :string, :default => "vendor"        # Производитель
   preference :model,           :string, :default => "model"         # Модель
@@ -17,7 +18,7 @@ class Spree::YandexMarketConfiguration < Spree::Preferences::Configuration
   preference :country_of_manufacturer, :string, :default => "country_of_manufacturer" #страны производства товара.
   preference :manufacturer_warranty, :string, :default => "manufacturer_warranty" # есть официальная гарантию производителя.
   preference :wares_type,      :string, :default => "wares_type"   # Тип Товара
-  
+
   # wares property Книги и АудиоКниги
   preference :author, :string            # Автор книги
   preference :publisher, :string         # Издательство
@@ -36,7 +37,7 @@ class Spree::YandexMarketConfiguration < Spree::Preferences::Configuration
 
   # wares property Музыка и Видео
   preference :artist , :string          # Исполнитель
-  preference :title , :string           # Наименование 
+  preference :title , :string           # Наименование
   preference :music_video_year, :string # Год
   preference :media , :string           # Носитель
   preference :starring , :string        # Актеры

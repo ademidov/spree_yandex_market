@@ -11,7 +11,7 @@ ru:
     export_files: Сформированные файлы
     export_file: Ссылка на файл
     what_wares_export: Какой товар выгружать в Яндекс.Маркет
-    all_active_wares: Весь активный товар 
+    all_active_wares: Весь активный товар
     on_hand_wares: Только товар который есть в наличии
     run_generate_file: Запустить формирование файла
     download: Скачать
@@ -49,9 +49,9 @@ ru:
     performed_by: Исполнитель для аудиокниги
     storage: Носитель аудиокниги
     format: Формат аудиокниги
-    recording_length: Время звучания 
+    recording_length: Время звучания
     artist:  Исполнитель
-    title: Наименование 
+    title: Наименование
     music_video_year: Год
     media: Носитель
     starring: Актеры
@@ -66,4 +66,5 @@ ru:
     event_date: Дата и время сеанса
     is_premiere: Признак премьерности мероприятия
     is_kids: Признак детского мероприятия
+    from_product_group: Из группы
   export_to_yandex_market: Экспортировать в Яндекс-Маркет

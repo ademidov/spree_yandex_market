@@ -1,22 +1,24 @@
 # -*- coding: utf-8 -*-
-class Spree::Admin::YandexMarketSettingsController < Spree::Admin::BaseController  
+class Spree::Admin::YandexMarketSettingsController < Spree::Admin::BaseController
   before_filter :get_config
-  
+
   def show
     @taxons =  Spree::Taxon.roots
+    @product_group = Spree::ProductGroup.find_by_id(@config.preferred_product_group)
   end
-  
+
   def general
     @taxons =  Spree::Taxon.roots
+    @product_groups = Spree::ProductGroup.all
   end
-  
+
   def currency
   end
-  
+
   def ware_property
     @properties = Spree::Property.all
   end
-  
+
   def export_files
     directory = File.join(Rails.root, 'public', 'yandex_market', '**', '*')
     # нельзя вызывать стат, не удостоверившись в наличии файла!!111
@@ -26,7 +28,7 @@ class Spree::Admin::YandexMarketSettingsController < Spree::Admin::BaseControlle
     @export_files.reject! {|x| x.first == "yandex_market.xml" }
     @export_files.unshift(e) unless e.blank?
   end
-  
+
   def run_export
     command = %{cd #{Rails.root} && RAILS_ENV=#{Rails.env} rake spree_yandex_market:generate_ym &}
     logger.info "[ yandex market ] Запуск формирование файла экспорта из блока администрирования "
@@ -35,10 +37,10 @@ class Spree::Admin::YandexMarketSettingsController < Spree::Admin::BaseControlle
     flash[:notice] = "Обновите страницу через несколько минут."
     redirect_to export_files_admin_yandex_market_settings_url
   end
-  
-  def update   
+
+  def update
     @config.set(params[:preferences])
-    
+
     respond_to do |format|
       format.html {
         redirect_to admin_yandex_market_settings_path
